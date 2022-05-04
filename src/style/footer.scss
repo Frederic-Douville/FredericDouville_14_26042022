@@ -1,0 +1,13 @@
+@import './font.scss';
+
+.footer{
+    &-ctn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-text{
+        font-family: 'Nunito-sans-regular';
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,20 @@
+@import './font.scss';
+
+.header{
+    &-ctn{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    &-logo{
+        width:120px;
+        height: 108px;
+    }
+    &-title{
+        font-family: 'Roboto-bold';
+        font-size: 100px;
+        margin: 0;
+        padding: 0;
+    }
+}

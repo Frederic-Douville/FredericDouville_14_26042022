@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header, Error } from './components';
+import { Header, Error, Footer } from './components';
 import { HomeForm, EmployeesDataList } from './pages';
 import './style/index.scss';
 
@@ -16,5 +16,6 @@ root.render(
                 <Route path="*" element={<Error />} />
             </Routes>
         </Router>
+        <Footer />
     </React.StrictMode>
 );

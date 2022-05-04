@@ -1,0 +1,28 @@
+@import './font.scss';
+@import './variables.scss';
+
+.error{
+    &-ctn{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Nunito-sans-regular';
+    }
+    &-code{
+        font-family: 'Nunito-sans-bold';        
+        font-size: 64px;
+        color: $color-primary;
+        margin:0.5em;
+    }
+    &-msg{
+        font-size:30px;
+        color: $color-primary;
+        margin: 0 0 0.5em 0;
+    }
+    &-link{
+        font-size:20px;
+        color: $color-tertiary;
+        margin: 2em 0 2em 0;
+    }
+}
