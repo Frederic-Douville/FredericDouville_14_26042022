@@ -1,10 +1,34 @@
 import { Link } from 'react-router-dom';
 import EmployeeListIcon from '../../assets/address-card-solid.svg';
-import ScrollingMenu from '../../components/scrolling menu';
-import department from '../../datas/option.js';
+import department from '../../datas/department.js';
+import americanStates from '../../datas/americanStates.js';
+import { InputField, ScrollingMenu } from '../../components';
 
 function HomeForm() {
-    console.log(department);
+    const firstName = document.getElementById('firstname');
+    const lastName = document.getElementById('lastname');
+    const birthDay = document.getElementById('birthday');
+    const startDay = document.getElementById('startdate');
+    const street = document.getElementById('street');
+    const city = document.getElementById('city');
+    const stateSelect = document.getElementById('state');
+    const zipCode = document.getElementById('zipcode');
+    const departmentSelect = document.getElementById('department');
+
+    function CreateEmployee(event) {
+        event.preventDefault();
+        console.log(
+            firstName.value,
+            lastName.value,
+            birthDay.value,
+            startDay.value,
+            street.value,
+            city.value,
+            zipCode.value,
+            stateSelect.value,
+            departmentSelect.value
+        );
+    }
     return (
         <div className="home-ctn">
             <Link to="/employees" className="home-employee-link">
@@ -20,48 +44,36 @@ function HomeForm() {
             <div className="home-form-ctn">
                 <h1 className="home-form-title">Create Employee</h1>
                 <form className="form-create-employee">
-                    <div className="form-input-wrapper form-firstname">
-                        <label htmlFor="firstName">First Name</label>
-                        <input type="text" id="firstName" />
-                    </div>
-                    <div className="form-input-wrapper form-lastname">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input type="text" id="lastName" />
-                    </div>
-                    <div className="form-input-wrapper form-birthday">
-                        <label htmlFor="birthday">Date of Birth</label>
-                        <input type="date" id="birthday" />
-                    </div>
-                    <div className="form-input-wrapper form-startdate">
-                        <label htmlFor="startDate">Start Date</label>
-                        <input type="date" id="startDate" />
-                    </div>
+                    <InputField label="First Name" id="firstname" type="text" />
+                    <InputField label="Last Name" id="lastname" type="text" />
+                    <InputField
+                        label="Date of Birth"
+                        id="birthday"
+                        type="date"
+                    />
+                    <InputField label="Start Date" id="startdate" type="date" />
                     <div className="form-input-adress">
                         <h2>Adress</h2>
-                        <div className="form-input-wrapper form-street">
-                            <label htmlFor="Street">Street</label>
-                            <input type="text" id="Street" />
-                        </div>
-                        <div className="form-input-wrapper form-city">
-                            <label htmlFor="City">City</label>
-                            <input type="text" id="City" />
-                        </div>
-                        <div className="form-input-wrapper form-state">
-                            <label htmlFor="state">State</label>
-                            <select id="state">
-                                <option value="alabama">Alabama</option>
-                                <option value="illinois">Illinois</option>
-                            </select>
-                        </div>
-                        <div className="form-input-wrapper form-zipcode">
-                            <label htmlFor="zipCode">Zip Code</label>
-                            <input type="text" id="zipCode" />
-                        </div>
+                        <InputField label="Street" id="street" type="text" />
+                        <InputField label="City" id="city" type="text" />
+                        <ScrollingMenu
+                            label="State"
+                            id="state"
+                            optionArray={americanStates}
+                        />
+                        <InputField label="Zip Code" id="zipcode" type="text" />
                     </div>
-
-                    <ScrollingMenu name="Department" optionArray={department} />
-
-                    <input type="submit" value="Save" className="form-submit" />
+                    <ScrollingMenu
+                        label="Department"
+                        id="department"
+                        optionArray={department}
+                    />
+                    <input
+                        type="submit"
+                        value="Save"
+                        className="form-submit"
+                        onClick={CreateEmployee}
+                    />
                 </form>
             </div>
         </div>
