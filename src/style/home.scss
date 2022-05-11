@@ -88,6 +88,19 @@
             color: #595959
         }
     }
+    &-error{
+        &-ctn{
+            width:205px;
+            height: 20px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        &-msg{
+            color:red;
+            font-size:10px;
+            word-wrap: break-word;
+        }
+    }
     &-firstname{
         grid-column: 1 / 2;
         grid-row: 1 / 2;        
@@ -111,7 +124,7 @@
         justify-self: center;
         display: grid;
         grid-template-columns: 278px 278px;
-        grid-template-rows: 60px 90px 90px;
+        grid-template-rows: 50px 100px 100px;
         border-top: solid 2px $color-secondary;
         border-bottom: solid 2px $color-secondary ;
         & h2{
