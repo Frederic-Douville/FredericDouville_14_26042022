@@ -1,6 +1,7 @@
 @import './header.scss';
 @import './footer.scss';
 @import './error.scss';
+@import './modal.scss';
 @import './home.scss';
 
 body {
@@ -11,7 +12,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
+  position:relative;
 }
+
+  
 
 
 

@@ -1,20 +1,21 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useStore } from 'react-redux';
-import { selectForm } from '../../utils/selectors';
-import { checkingData } from '../../features/form';
+import { selectForm, selectModal } from '../../utils/selectors';
+import { checkingData, formReset } from '../../features/form';
+import { modalIsOpen, modalIsClose } from '../../features/modal';
 import EmployeeListIcon from '../../assets/address-card-solid.svg';
 import department from '../../datas/department.js';
 import americanStates from '../../datas/americanStates.js';
-import { InputField, ScrollingMenu } from '../../components';
+import { InputField, ScrollingMenu, Modal } from '../../components';
 
 function HomeForm() {
     const store = useStore();
-    const errorStatus = useSelector(selectForm).status;
+    const formStatus = useSelector(selectForm).status;
     const errorMsg = useSelector(selectForm).errorMessages;
+    const modalStatus = useSelector(selectModal).status;
 
     function CreateEmployee(event) {
         event.preventDefault();
-
         const employeeData = {
             firstname: document.getElementById('firstname').value,
             lastname: document.getElementById('lastname').value,
@@ -26,11 +27,26 @@ function HomeForm() {
             zipcode: document.getElementById('zipcode').value,
             department: document.getElementById('department').value,
         };
-        console.log(employeeData);
         checkingData(store, employeeData);
+        window.setTimeout(() => {
+            if (formStatus === 'resolved') {
+                store.dispatch(modalIsOpen());
+            }
+        }, 500);
     }
+
+    function closeModal() {
+        store.dispatch(formReset());
+        store.dispatch(modalIsClose());
+        document.getElementById('form-employee').reset();
+    }
+
     return (
         <div className="home-ctn">
+            {modalStatus ? (
+                <Modal message="Employee Created !" functionBtn={closeModal} />
+            ) : null}
+
             <Link to="/employees" className="home-employee-link">
                 <img
                     src={EmployeeListIcon}
@@ -43,7 +59,7 @@ function HomeForm() {
             </Link>
             <div className="home-form-ctn">
                 <h1 className="home-form-title">Create Employee</h1>
-                <form className="form-create-employee">
+                <form className="form-create-employee" id="form-employee">
                     <InputField
                         label="First Name"
                         id="firstname"

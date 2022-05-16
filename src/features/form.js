@@ -10,7 +10,7 @@ const initialState = {
 const formChecking = createAction('form/checking');
 const formResolved = createAction('form/resolved');
 const formRejected = createAction('form/rejected');
-const formReset = createAction('form/reset');
+export const formReset = createAction('form/reset');
 
 export function checkingData(store, employeeData) {
     const status = selectForm(store.getState()).status;
