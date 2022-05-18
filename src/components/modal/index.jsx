@@ -1,10 +1,10 @@
-function Modal({ message, functionBtn }) {
+function Modal({ text, functionBtn, textBtn }) {
     return (
         <div className="modal-bg">
             <div className="modal-ctn">
-                <span className="modal-msg">{message}</span>
+                <span className="modal-msg">{text}</span>
                 <button className="modal-btn" onClick={functionBtn}>
-                    OK
+                    {textBtn}
                 </button>
             </div>
         </div>
