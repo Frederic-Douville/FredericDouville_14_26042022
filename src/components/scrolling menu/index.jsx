@@ -9,7 +9,7 @@ function ScrollingMenu({ label, id, optionArray, errorMsg }) {
             <select id={id}>
                 <option defaultValue={''} hidden></option>
                 {optionArray.map((optionElem, index) => (
-                    <option key={index} value={optionElem.toLowerCase()}>
+                    <option key={index} value={optionElem}>
                         {optionElem}
                     </option>
                 ))}

@@ -32,6 +32,7 @@ function HomeForm() {
             const formStatus = selectForm(store.getState()).status;
             if (formStatus === 'resolved') {
                 store.dispatch(modalIsOpen());
+                console.log(employeeData);
             }
         }, 100);
     }

@@ -4,3 +4,4 @@ export { default as Error } from './error';
 export { default as ScrollingMenu } from './scrolling menu';
 export { default as InputField } from './input field';
 export { default as Modal } from './modal';
+export { default as Table } from './table';

@@ -24,7 +24,6 @@ const americanStates = [
     'Maine',
     'Marshall Islands',
     'Maryland',
-    'Maryland',
     'Massachussetts',
     'Michigan',
     'Minnesota',
