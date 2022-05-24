@@ -1,23 +1,68 @@
+import TableButton from '../table button';
+
 function Table({ dataArray }) {
     return (
         <div>
-            <table>
+            <table className="table-main">
                 <thead>
                     <tr className="table-line-title">
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Start Date</th>
-                        <th>Department</th>
-                        <th>Date of Birth</th>
-                        <th>Street</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
+                        <th>
+                            <div className="table-line-title-div">
+                                First Name <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                Last Name <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                Start Date <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                Department <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                Date of Birth <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                Street <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                City <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                State <TableButton />
+                            </div>
+                        </th>
+                        <th>
+                            <div className="table-line-title-div">
+                                Zip Code <TableButton />
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     {dataArray.map((employee, index) => (
-                        <tr key={index} className="table-line-employee">
+                        <tr
+                            key={index}
+                            className={`table-line-employee ${
+                                index % 2 === 0
+                                    ? 'table-line-white'
+                                    : 'table-line-grey'
+                            }`}
+                        >
                             <td>{employee.firstname}</td>
                             <td>{employee.lastname}</td>
                             <td>{employee.startday}</td>

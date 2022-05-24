@@ -107,7 +107,7 @@ function HomeForm() {
                         <ScrollingMenu
                             label="State"
                             id="state"
-                            optionArray={americanStates}
+                            optionArrayStates={americanStates}
                             errorMsg={errorMsg?.state}
                         />
                         <InputField

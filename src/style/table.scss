@@ -1,0 +1,58 @@
+@import './font.scss';
+@import './variables.scss';
+
+.table{
+    &-main{
+        //border-collapse: collapse;
+        font-family: 'Nunito-sans-regular';
+        width:1100px;        
+    }
+    &-line{
+        &-title{
+            background-color: $color-primary;
+            color:white;
+            height: 46px;
+            & th{
+                font-size: 18px;
+                &:hover{
+                    background-color: $color-secondary;
+                }
+            }
+            &-div{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+            }        
+        }
+        &-employee{
+            height: 46px;
+            & td{
+                text-align: center;
+            }
+        }
+        &-grey{
+            background-color: #dfdfdf;
+        }
+    }
+    &-btn{
+        border:none;
+        cursor:pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:15px;
+        height:15px;
+        background-color: transparent;
+        & img{
+            width: 15px;
+            height: 15px;
+        }        
+        &-ctn{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;            
+        }        
+    }
+}

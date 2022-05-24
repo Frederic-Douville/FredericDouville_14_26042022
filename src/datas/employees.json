@@ -5,7 +5,7 @@
     "firstname": "John",
     "lastname": "Sulivan",
     "startday": "2006-05-01",
-    "state": "illinois",
+    "state": "IL",
     "street": "9 Main Street",
     "zipcode": "60602"
 },
@@ -16,7 +16,7 @@
     "firstname": "Sylvia",
     "lastname": "Monroe",
     "startday": "2012-09-01",
-    "state": "New Jersey",
+    "state": "NJ",
     "street": "21 Elisabeth street",
     "zipcode": "11210"
 },
@@ -27,7 +27,7 @@
     "firstname": "Jack",
     "lastname": "Barber",
     "startday": "2010-01-01",
-    "state": "Pennsylvania",
+    "state": "PA",
     "street": "82 Carpenter street",
     "zipcode": "19146"
 },
@@ -38,7 +38,7 @@
     "firstname": "Elisa",
     "lastname": "Mac Arthur",
     "startday": "2011-03-01",
-    "state": "Massachussetts",
+    "state": "MA",
     "street": "10 Hurley Street",
     "zipcode": "02141"
 },
@@ -49,7 +49,7 @@
     "firstname": "Alisson",
     "lastname": "Roberts",
     "startday": "2000-06-01",
-    "state": "District Of Columbia",
+    "state": "DC",
     "street": "123 Willard Street",
     "zipcode": "20009"
 },
@@ -60,7 +60,7 @@
     "firstname": "Bob",
     "lastname": "Shepard",
     "startday": "1998-02-01",
-    "state": "Maryland",
+    "state": "MD",
     "street": "528 Eager Street",
     "zipcode": "21202"
 },
@@ -71,7 +71,7 @@
     "firstname": "Nicole",
     "lastname": "Pitch",
     "startday": "2015-05-01",
-    "state": "North Carolina",
+    "state": "NC",
     "street": "32 Davidson Street",
     "zipcode": "28202"
 },
@@ -82,7 +82,7 @@
     "firstname": "Mark",
     "lastname": "Oliver",
     "startday": "2013-08-01",
-    "state": "Georgia",
+    "state": "GA",
     "street": "253 Broad Street",
     "zipcode": "30303"
 },
@@ -93,7 +93,7 @@
     "firstname": "Betty",
     "lastname": "Omaha",
     "startday": "2006-05-11",
-    "state": "Indiana",
+    "state": "IN",
     "street": "165 Talbolt Street",
     "zipcode": "46202"
 },
@@ -104,7 +104,7 @@
     "firstname": "Brian",
     "lastname": "Albernaty",
     "startday": "2003-03-01",
-    "state": "Illinois",
+    "state": "IL",
     "street": "850 Whipple Street",
     "zipcode": "60623"
 },
@@ -115,7 +115,7 @@
     "firstname": "Sandra",
     "lastname": "Rocket",
     "startday": "2008-01-01",
-    "state": "Wisconsin",
+    "state": "WI",
     "street": "10 Burleigh Street",
     "zipcode": "53210"
 },
@@ -126,7 +126,7 @@
     "firstname": "Bob",
     "lastname": "Zimmer",
     "startday": "2014-02-01",
-    "state": "Ohio",
+    "state": "OH",
     "street": "63 Ontario Street",
     "zipcode": "44114"
 },
@@ -137,7 +137,7 @@
     "firstname": "Marjory",
     "lastname": "Nate",
     "startday": "2013-01-01",
-    "state": "Pennsylvania",
+    "state": "PA",
     "street": "900 Wylie Avenue",
     "zipcode": "15219"
 },
@@ -148,7 +148,7 @@
     "firstname": "Nathan",
     "lastname": "Walker",
     "startday": "2010-03-01",
-    "state": "New York",
+    "state": "NY",
     "street": "450 Spring Street",
     "zipcode": "10013"
 },
@@ -159,7 +159,7 @@
     "firstname": "Katie",
     "lastname": "Kinsey",
     "startday": "2002-09-01",
-    "state": "Maryland",
+    "state": "MD",
     "street": "98 Dolphin Street",
     "zipcode": "21217"
 },
@@ -170,7 +170,7 @@
     "firstname": "Mark",
     "lastname": "Southgate",
     "startday": "2021-05-01",
-    "state": "Tennessee",
+    "state": "TN",
     "street": "1016 Hamilton Avenue",
     "zipcode": "37203"
 },
@@ -181,7 +181,7 @@
     "firstname": "Maddie",
     "lastname": "Brakeshield",
     "startday": "2005-11-01",
-    "state": "Missouri",
+    "state": "MO",
     "street": "35 Folsom Avenue",
     "zipcode": "63110"
 },
@@ -192,7 +192,7 @@
     "firstname": "Michael",
     "lastname": "Reeve",
     "startday": "2000-09-01",
-    "state": "Michigan",
+    "state": "MI",
     "street": "368 Ferry Park Avenue",
     "zipcode": "48208"
 },
@@ -203,7 +203,7 @@
     "firstname": "Jake",
     "lastname": "Malone",
     "startday": "2004-03-01",
-    "state": "Illinois",
+    "state": "IL",
     "street": "998 Talcott Avenue",
     "zipcode": "60602"
 },
@@ -214,7 +214,7 @@
     "firstname": "Claudia",
     "lastname": "Madison",
     "startday": "2010-01-01",
-    "state": "New York",
+    "state": "NY",
     "street": "456 Governor Street",
     "zipcode": "10013"
 }] 
