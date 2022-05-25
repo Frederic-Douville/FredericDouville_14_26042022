@@ -6,3 +6,5 @@ export { default as InputField } from './input field';
 export { default as Modal } from './modal';
 export { default as Table } from './table';
 export { default as TableButtton } from './table button';
+export { default as OptionsDropMenu } from './options drop menu';
+export { default as InputSearch } from './input search';

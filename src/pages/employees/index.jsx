@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Table } from '../../components';
+import { InputSearch, OptionsDropMenu, Table } from '../../components';
 import circleLeftSolid from '../../assets/circle-left-solid.svg';
 import dataArrayJson from '../../datas/employees.json';
 
@@ -9,8 +9,12 @@ function EmployeesDataList() {
             <h1 className="employees-title">Current Employees</h1>
             <div className="employees-table-ctn">
                 <div className="employees-table-options">
-                    <span>Show entries</span>
-                    <span>Search bar</span>
+                    <span className="employees-table-options-show">
+                        Show{' '}
+                        <OptionsDropMenu optionsArray={[10, 25, 50, 100]} />{' '}
+                        entries
+                    </span>
+                    <InputSearch />
                 </div>
                 <Table dataArray={dataArrayJson} />
                 <div className="employees-table-options">

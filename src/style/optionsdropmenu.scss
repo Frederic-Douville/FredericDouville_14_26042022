@@ -1,0 +1,64 @@
+@import './font.scss';
+@import './variables.scss';
+
+.opt{
+    &-drop{
+        &-ctn{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:flex-start;
+            position:relative;
+            width:60px;
+            margin: 0 5px 0 5px;
+            background-color: white;
+            //color: white;           
+            border-radius: 7.5px;
+            box-shadow: rgb(125, 124, 124) 0 4px 4px;
+            font-family: 'Nunito-sans-regular';            
+        }
+        &-menu{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position:absolute;            
+            top:24px;
+            width:60px;
+            background-color: white;
+            border-radius: 0 0 7.5px 7.5px;
+            box-shadow: rgb(125, 124, 124) 0 4px 4px;            
+        }
+        &-option{
+            margin-left: 5px;
+            cursor: pointer;
+        }
+    }
+    &-choice{
+        &-ctn{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:60px;
+            height:30px;
+            & span{
+                margin-left: 5px;
+            }
+        }
+        &-btn{
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            width:20px;
+            height:20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 5px;
+            &-icon{
+                width:17.5px;
+                height:17.5px;
+            }
+        }
+    }
+}

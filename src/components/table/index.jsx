@@ -1,56 +1,30 @@
 import TableButton from '../table button';
 
 function Table({ dataArray }) {
+    const titleArray = [
+        { title: 'First Name', class: 'firstname' },
+        { title: 'Last Name', class: 'lastname' },
+        { title: 'Start Date', class: 'startdate' },
+        { title: 'Department', class: 'department' },
+        { title: 'Date of Birth', class: 'birthday' },
+        { title: 'Street', class: 'street' },
+        { title: 'City', class: 'city' },
+        { title: 'State', class: 'state' },
+        { title: 'Zip Code', class: 'zipcode' },
+    ];
     return (
         <div>
             <table className="table-main">
                 <thead>
                     <tr className="table-line-title">
-                        <th>
-                            <div className="table-line-title-div">
-                                First Name <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                Last Name <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                Start Date <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                Department <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                Date of Birth <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                Street <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                City <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                State <TableButton />
-                            </div>
-                        </th>
-                        <th>
-                            <div className="table-line-title-div">
-                                Zip Code <TableButton />
-                            </div>
-                        </th>
+                        {titleArray.map((elem, index) => (
+                            <th key={index}>
+                                <div className="table-line-title-div">
+                                    <span>{elem.title}</span>{' '}
+                                    <TableButton name={elem.class} />
+                                </div>
+                            </th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
