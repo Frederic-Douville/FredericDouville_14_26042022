@@ -1,0 +1,22 @@
+@import './font.scss';
+@import './variables.scss';
+
+.search-bar{
+    &-ctn{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        font-family: 'Nunito-sans-regular';
+    }
+    &-label{
+        font-size: 20px;
+    }
+    &-input{
+        border: solid 2px #c9c9c9;
+        border-radius: 10px;
+        width:205px;
+        height:40px;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+}

@@ -9,13 +9,13 @@
             justify-content: center;
             align-items:flex-start;
             position:relative;
-            width:60px;
-            margin: 0 5px 0 5px;
-            background-color: white;
-            //color: white;           
+            width:70px;
+            margin: 0 10px 0 10px;
+            background-color: white;          
             border-radius: 7.5px;
             box-shadow: rgb(125, 124, 124) 0 4px 4px;
-            font-family: 'Nunito-sans-regular';            
+            font-family: 'Nunito-sans-regular';
+            font-size: 20px;            
         }
         &-menu{
             display: flex;
@@ -24,7 +24,7 @@
             align-items: flex-start;
             position:absolute;            
             top:24px;
-            width:60px;
+            width:70px;
             background-color: white;
             border-radius: 0 0 7.5px 7.5px;
             box-shadow: rgb(125, 124, 124) 0 4px 4px;            
@@ -35,11 +35,15 @@
         }
     }
     &-choice{
+        &-first-open{
+            color: #c9c9c9;
+            padding:0 0 8px 5px;
+        }
         &-ctn{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width:60px;
+            width:70px;
             height:30px;
             & span{
                 margin-left: 5px;

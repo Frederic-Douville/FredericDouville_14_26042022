@@ -16,14 +16,15 @@ function OptionsDropMenu({ optionsArray }) {
         setDropIsOpen(!dropIsOpen);
     }
     return (
-        <div
-            className={`opt-drop-ctn ${
-                dropIsOpen ? 'opt-drop-ctn-extend' : null
-            }`}
-        >
+        <div className="opt-drop-ctn">
             <div className="opt-choice-ctn">
-                <span className="opt-choice-first" id="option-0">
-                    {dropIsOpen ? '' : choice}
+                <span
+                    className={`opt-choice-first ${
+                        dropIsOpen ? 'opt-choice-first-open' : null
+                    }`}
+                    id="option-0"
+                >
+                    {dropIsOpen ? '...' : choice}
                 </span>
                 <button className="opt-choice-btn">
                     <img
