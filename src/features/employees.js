@@ -7,19 +7,21 @@ const initialState = {
     error: null,
 };
 
-const employeesFetchRequesting = createAction('employees/axiosRequesting');
+const employeesFetchRequesting = createAction('employees/fetchRequesting');
 const employeesResolved = createAction('employees/resolved');
 const employeesRejected = createAction('employees/rejected');
-export const employeesReset = createAction('employees/reset');
+export const employeesAddNewOne = createAction('employees/addNewOne');
 
-export async function getEmployeesData(store, url) {
+export async function getEmployeesData(store) {
     const status = selectEmployees(store.getState()).status;
-    if (status === 'pending' || status === 'updating') {
+    if (status === 'pending' || status === 'updating' || status === 'updated') {
         return;
     }
     store.dispatch(employeesFetchRequesting());
     try {
-        const response = await fetch(url);
+        const response = await fetch(
+            'https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_14_26042022/main/src/datas/employees.json'
+        );
         const data = await response.json();
         store.dispatch(employeesResolved(data));
     } catch (error) {
@@ -57,6 +59,12 @@ export default createReducer(initialState, (builder) =>
                 draft.response = null;
                 draft.error = action.payload;
                 return;
+            }
+        })
+        .addCase(employeesAddNewOne, (draft, action) => {
+            if (draft.status === 'resolved') {
+                draft.status = 'updated';
+                draft.response = action.payload;
             }
         })
 );

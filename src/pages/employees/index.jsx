@@ -1,26 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useStore } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { InputSearch, OptionsDropMenu, Table } from '../../components';
+import {
+    InputSearch,
+    OptionsDropMenu,
+    ShowingElements,
+    Table,
+} from '../../components';
 import circleLeftSolid from '../../assets/circle-left-solid.svg';
-import dataArrayJson from '../../datas/employees.json';
-import { getEmployeesData } from '../../features/employees';
-import { selectEmployees } from '../../utils/selectors';
+import { selectEmployees, selectPaging } from '../../utils/selectors';
 
 function EmployeesDataList() {
     const store = useStore();
     const [isData, setIsData] = useState(false);
-    const url =
-        'https://raw.githubusercontent.com/Frederic-Douville/FredericDouville_14_26042022/main/src/datas/employees.json';
     const employeeStatus = selectEmployees(store.getState()).status;
     const employeesDatas = useSelector(selectEmployees).response;
+    const paging = useSelector(selectPaging);
 
     useEffect(() => {
-        getEmployeesData(store, url);
-        if (employeeStatus === 'resolved') {
+        if (employeeStatus === 'resolved' || employeeStatus === 'updated') {
             setIsData(true);
         }
-    }, [store, url, employeeStatus]);
+    }, [employeeStatus]);
 
     return (
         <div className="employees-ctn">
@@ -34,9 +35,19 @@ function EmployeesDataList() {
                     </span>
                     <InputSearch />
                 </div>
-                <Table dataArray={isData ? employeesDatas : []} />
+                <Table
+                    dataArray={isData ? employeesDatas : []}
+                    elementNbr={paging.endNbr}
+                />
                 <div className="employees-table-options">
-                    <span>Showing 1 to 20 of 20 entries</span>
+                    {isData ? (
+                        <ShowingElements
+                            beginNbr={paging.beginNbr}
+                            endNbr={paging.endNbr}
+                            total={employeesDatas.length}
+                        />
+                    ) : null}
+
                     <span>Pagination 1 2 .. 5</span>
                 </div>
             </div>

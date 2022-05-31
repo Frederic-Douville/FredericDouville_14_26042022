@@ -1,20 +1,27 @@
 import chevronUp from '../../assets/chevron-up-solid.svg';
 import chevronDown from '../../assets/chevron-down-solid.svg';
 import { useState } from 'react';
+import { choosePaging } from '../../features/paging';
+import { useStore } from 'react-redux';
 
 function OptionsDropMenu({ optionsArray }) {
     const [dropIsOpen, setDropIsOpen] = useState(false);
     const [choice, setChoice] = useState(optionsArray[0]);
+    const store = useStore();
+
     function openDropMenu() {
         setDropIsOpen(!dropIsOpen);
     }
+
     function choiceOption(event) {
         const choiceIndex = event.currentTarget
             .getAttribute('id')
             .split('-')[1];
         setChoice(optionsArray[choiceIndex]);
+        choosePaging(store, optionsArray[choiceIndex]);
         setDropIsOpen(!dropIsOpen);
     }
+
     return (
         <div className="opt-drop-ctn">
             <div className="opt-choice-ctn">

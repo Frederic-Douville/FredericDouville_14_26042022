@@ -8,3 +8,5 @@ export { default as Table } from './table';
 export { default as TableButtton } from './table button';
 export { default as OptionsDropMenu } from './options drop menu';
 export { default as InputSearch } from './input search';
+export { default as ShowingElements } from './showing element';
+export { default as Paging } from './paging';

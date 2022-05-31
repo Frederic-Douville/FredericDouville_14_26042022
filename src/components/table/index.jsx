@@ -1,6 +1,6 @@
 import TableButton from '../table button';
 
-function Table({ dataArray }) {
+function Table({ dataArray, elementNbr }) {
     const titleArray = [
         { title: 'First Name', class: 'firstname' },
         { title: 'Last Name', class: 'lastname' },
@@ -28,26 +28,28 @@ function Table({ dataArray }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataArray.map((employee, index) => (
-                        <tr
-                            key={index}
-                            className={`table-line-employee ${
-                                index % 2 === 0
-                                    ? 'table-line-white'
-                                    : 'table-line-grey'
-                            }`}
-                        >
-                            <td>{employee.firstname}</td>
-                            <td>{employee.lastname}</td>
-                            <td>{employee.startday}</td>
-                            <td>{employee.department}</td>
-                            <td>{employee.birthday}</td>
-                            <td>{employee.street}</td>
-                            <td>{employee.city}</td>
-                            <td>{employee.state}</td>
-                            <td>{employee.zipcode}</td>
-                        </tr>
-                    ))}
+                    {dataArray.map((employee, index) =>
+                        index < elementNbr ? (
+                            <tr
+                                key={index}
+                                className={`table-line-employee ${
+                                    index % 2 === 0
+                                        ? 'table-line-white'
+                                        : 'table-line-grey'
+                                }`}
+                            >
+                                <td>{employee.firstname}</td>
+                                <td>{employee.lastname}</td>
+                                <td>{employee.startday}</td>
+                                <td>{employee.department}</td>
+                                <td>{employee.birthday}</td>
+                                <td>{employee.street}</td>
+                                <td>{employee.city}</td>
+                                <td>{employee.state}</td>
+                                <td>{employee.zipcode}</td>
+                            </tr>
+                        ) : null
+                    )}
                 </tbody>
             </table>
         </div>

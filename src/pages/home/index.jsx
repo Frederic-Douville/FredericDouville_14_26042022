@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useSelector, useStore } from 'react-redux';
-import { selectForm, selectModal } from '../../utils/selectors';
-import { checkingData, formReset, saveEmployeeData } from '../../features/form';
-import { modalIsOpen, modalIsClose } from '../../features/modal';
+import { selectForm, selectEmployees } from '../../utils/selectors';
+import { checkingData, formReset } from '../../features/form';
+import { employeesAddNewOne, getEmployeesData } from '../../features/employees';
 import EmployeeListIcon from '../../assets/address-card-solid.svg';
 import department from '../../datas/department.js';
 import americanStates from '../../datas/americanStates.js';
@@ -10,9 +11,14 @@ import { InputField, ScrollingMenu } from '../../components';
 import { Modal } from 'p14-react-modal-ocr-fred_dou';
 
 function HomeForm() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const store = useStore();
     const errorMsg = useSelector(selectForm).errorMessages;
-    const modalStatus = useSelector(selectModal).status;
+    const employeesData = useSelector(selectEmployees).response;
+
+    useEffect(() => {
+        getEmployeesData(store);
+    }, [store]);
 
     function CreateEmployee(event) {
         event.preventDefault();
@@ -28,24 +34,29 @@ function HomeForm() {
             department: document.getElementById('department').value,
         };
         checkingData(store, employeeData);
+
         window.setTimeout(() => {
             const formStatus = selectForm(store.getState()).status;
+            const newData = employeesData.map((item) =>
+                Object.assign({}, item, { selected: false })
+            );
             if (formStatus === 'resolved') {
-                store.dispatch(modalIsOpen());
-                console.log(employeeData);
+                newData.push(employeeData);
+                store.dispatch(employeesAddNewOne(newData));
+                setIsModalOpen(true);
             }
         }, 100);
     }
 
     function closeModal() {
         store.dispatch(formReset());
-        store.dispatch(modalIsClose());
+        setIsModalOpen(false);
         document.getElementById('form-employee').reset();
     }
 
     return (
         <div className="home-ctn">
-            {modalStatus ? (
+            {isModalOpen ? (
                 <Modal
                     text="Employee Created !"
                     functionBtn={closeModal}
