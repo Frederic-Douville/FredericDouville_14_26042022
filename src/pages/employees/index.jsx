@@ -6,9 +6,12 @@ import {
     OptionsDropMenu,
     ShowingElements,
     Table,
+    Paging,
 } from '../../components';
 import circleLeftSolid from '../../assets/circle-left-solid.svg';
 import { selectEmployees, selectPaging } from '../../utils/selectors';
+import { getEmployeesData } from '../../features/employees';
+import { initializePaging } from '../../features/paging';
 
 function EmployeesDataList() {
     const store = useStore();
@@ -18,10 +21,17 @@ function EmployeesDataList() {
     const paging = useSelector(selectPaging);
 
     useEffect(() => {
+        if (employeeStatus === 'void') {
+            getEmployeesData(store);
+            window.setTimeout(() => {
+                setIsData(true);
+            }, 200);
+        }
         if (employeeStatus === 'resolved' || employeeStatus === 'updated') {
             setIsData(true);
+            initializePaging(store);
         }
-    }, [employeeStatus]);
+    }, [employeeStatus, store]);
 
     return (
         <div className="employees-ctn">
@@ -37,18 +47,18 @@ function EmployeesDataList() {
                 </div>
                 <Table
                     dataArray={isData ? employeesDatas : []}
-                    elementNbr={paging.endNbr}
+                    startNbr={paging.startNbr}
+                    endNbr={paging.endNbr}
                 />
                 <div className="employees-table-options">
                     {isData ? (
                         <ShowingElements
-                            beginNbr={paging.beginNbr}
+                            startNbr={paging.startNbr}
                             endNbr={paging.endNbr}
-                            total={employeesDatas.length}
+                            total={employeesDatas?.length}
                         />
                     ) : null}
-
-                    <span>Pagination 1 2 .. 5</span>
+                    <Paging pagesNbr={paging.pagesNbr} />
                 </div>
             </div>
             <Link to="/" className="home-link">

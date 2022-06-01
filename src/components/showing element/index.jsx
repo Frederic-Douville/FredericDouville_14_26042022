@@ -1,8 +1,8 @@
-function ShowingElements({ beginNbr, endNbr, total }) {
+function ShowingElements({ startNbr, endNbr, total }) {
     return (
         <div className="showing-ctn">
             <span className="showing-text">
-                Showing {beginNbr} to {endNbr} of {total} entries.
+                Showing {startNbr} to {endNbr} of {total} entries.
             </span>
         </div>
     );

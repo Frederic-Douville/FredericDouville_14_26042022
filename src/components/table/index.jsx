@@ -1,6 +1,6 @@
 import TableButton from '../table button';
 
-function Table({ dataArray, elementNbr }) {
+function Table({ dataArray, startNbr, endNbr }) {
     const titleArray = [
         { title: 'First Name', class: 'firstname' },
         { title: 'Last Name', class: 'lastname' },
@@ -29,7 +29,7 @@ function Table({ dataArray, elementNbr }) {
                 </thead>
                 <tbody>
                     {dataArray.map((employee, index) =>
-                        index < elementNbr ? (
+                        index > startNbr && index < endNbr ? (
                             <tr
                                 key={index}
                                 className={`table-line-employee ${

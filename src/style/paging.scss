@@ -1,0 +1,26 @@
+@import './font.scss';
+@import './variables.scss';
+
+.showing{   
+    &-text{
+        font-family: 'Nunito-sans-regular';
+        font-size: 20px;
+    }
+}
+
+.paging-pages{
+    &-ctn{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    &-link{
+        font-family: 'Nunito-sans-regular';
+        font-size:20px;
+        padding: 0 0 0 5px;
+        cursor: pointer; 
+        &:hover{
+            color: $color-primary;
+        }
+    }
+}
