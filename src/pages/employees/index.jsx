@@ -10,14 +10,16 @@ import {
 } from '../../components';
 import circleLeftSolid from '../../assets/circle-left-solid.svg';
 import { selectEmployees, selectPaging } from '../../utils/selectors';
-import { getEmployeesData } from '../../features/employees';
+import { employeesSearched, getEmployeesData } from '../../features/employees';
 import { initializePaging } from '../../features/paging';
 
 function EmployeesDataList() {
     const store = useStore();
     const [isData, setIsData] = useState(false);
+    const searchStatus = selectEmployees(store.getState()).searchStatus;
     const employeeStatus = selectEmployees(store.getState()).status;
     const employeesDatas = useSelector(selectEmployees).response;
+    const searchData = useSelector(selectEmployees).searchData;
     const paging = useSelector(selectPaging);
 
     useEffect(() => {
@@ -28,8 +30,10 @@ function EmployeesDataList() {
             }, 200);
         }
         if (employeeStatus === 'resolved' || employeeStatus === 'updated') {
-            setIsData(true);
-            initializePaging(store);
+            window.setTimeout(() => {
+                setIsData(true);
+                initializePaging(store);
+            }, 200);
         }
     }, [employeeStatus, store]);
 
@@ -45,11 +49,20 @@ function EmployeesDataList() {
                     </span>
                     <InputSearch />
                 </div>
-                <Table
-                    dataArray={isData ? employeesDatas : []}
-                    startNbr={paging.startNbr}
-                    endNbr={paging.endNbr}
-                />
+                {!searchStatus ? (
+                    <Table
+                        dataArray={isData ? employeesDatas : []}
+                        startNbr={paging.startNbr}
+                        endNbr={paging.endNbr}
+                    />
+                ) : (
+                    <Table
+                        dataArray={searchData}
+                        startNbr={0}
+                        endNbr={searchData.length}
+                    />
+                )}
+
                 <div className="employees-table-options">
                     {isData ? (
                         <ShowingElements

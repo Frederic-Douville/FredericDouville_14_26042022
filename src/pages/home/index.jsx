@@ -37,7 +37,7 @@ function HomeForm() {
 
         window.setTimeout(() => {
             const formStatus = selectForm(store.getState()).status;
-            const newData = employeesData.map((item) =>
+            var newData = employeesData.map((item) =>
                 Object.assign({}, item, { selected: false })
             );
             if (formStatus === 'resolved') {

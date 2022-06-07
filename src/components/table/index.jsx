@@ -4,7 +4,7 @@ function Table({ dataArray, startNbr, endNbr }) {
     const titleArray = [
         { title: 'First Name', class: 'firstname' },
         { title: 'Last Name', class: 'lastname' },
-        { title: 'Start Date', class: 'startdate' },
+        { title: 'Start Date', class: 'startday' },
         { title: 'Department', class: 'department' },
         { title: 'Date of Birth', class: 'birthday' },
         { title: 'Street', class: 'street' },
@@ -29,7 +29,7 @@ function Table({ dataArray, startNbr, endNbr }) {
                 </thead>
                 <tbody>
                     {dataArray.map((employee, index) =>
-                        index > startNbr && index < endNbr ? (
+                        index >= startNbr && index < endNbr ? (
                             <tr
                                 key={index}
                                 className={`table-line-employee ${

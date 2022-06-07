@@ -3,14 +3,18 @@ import { selectEmployees } from '../utils/selectors';
 
 const initialState = {
     status: 'void',
-    response: null,
+    response: [],
     error: null,
+    searchStatus: false,
+    searchData: [],
 };
 
 const employeesFetchRequesting = createAction('employees/fetchRequesting');
 const employeesResolved = createAction('employees/resolved');
 const employeesRejected = createAction('employees/rejected');
 export const employeesAddNewOne = createAction('employees/addNewOne');
+export const employeesSorted = createAction('employees/sorted');
+export const employeesSearched = createAction('employees/searched');
 
 export async function getEmployeesData(store) {
     const status = selectEmployees(store.getState()).status;
@@ -62,9 +66,21 @@ export default createReducer(initialState, (builder) =>
             }
         })
         .addCase(employeesAddNewOne, (draft, action) => {
-            if (draft.status === 'resolved') {
+            if (draft.status === 'resolved' || draft.status === 'updated') {
                 draft.status = 'updated';
                 draft.response = action.payload;
+            }
+        })
+        .addCase(employeesSorted, (draft, action) => {
+            if (draft.status === 'resolved' || draft.status === 'updated') {
+                draft.status = 'updated';
+                draft.response = action.payload;
+            }
+        })
+        .addCase(employeesSearched, (draft, action) => {
+            if (draft.status === 'resolved' || draft.status === 'updated') {
+                draft.searchStatus = true;
+                draft.searchData = action.payload;
             }
         })
 );

@@ -3,7 +3,7 @@ import { selectEmployees, selectPaging } from '../utils/selectors';
 
 const initialState = {
     choice: 10,
-    startNbr: 1,
+    startNbr: 0,
     endNbr: 10,
     pagesNbr: null,
     page: 1,
@@ -27,7 +27,7 @@ export function choosePaging(store, choice) {
         ? (numberOfElement = choice)
         : (numberOfElement = employeeTotal);
     store.dispatch(
-        pagingChoiceUpdate([choice, 1, numberOfElement, numberOfPages])
+        pagingChoiceUpdate([choice, 0, numberOfElement, numberOfPages])
     );
 }
 
@@ -51,7 +51,7 @@ export function changeOfPage(store, choicePage) {
         newEndNbr = employeeTotal;
     }
     if (choicePage === '1') {
-        newStartNbr = 1;
+        newStartNbr = 0;
         newEndNbr = choicePaging;
     }
     store.dispatch(pagingChoicePage([newStartNbr, newEndNbr, choicePage]));
