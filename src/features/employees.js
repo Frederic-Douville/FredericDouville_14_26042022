@@ -69,18 +69,21 @@ export default createReducer(initialState, (builder) =>
             if (draft.status === 'resolved' || draft.status === 'updated') {
                 draft.status = 'updated';
                 draft.response = action.payload;
+                return;
             }
         })
         .addCase(employeesSorted, (draft, action) => {
             if (draft.status === 'resolved' || draft.status === 'updated') {
                 draft.status = 'updated';
                 draft.response = action.payload;
+                return;
             }
         })
         .addCase(employeesSearched, (draft, action) => {
             if (draft.status === 'resolved' || draft.status === 'updated') {
-                draft.searchStatus = true;
-                draft.searchData = action.payload;
+                draft.searchStatus = action.payload[0];
+                draft.searchData = action.payload[1];
+                return;
             }
         })
 );

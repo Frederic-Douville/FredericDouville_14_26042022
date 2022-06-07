@@ -19,6 +19,12 @@ export function initializePaging(store) {
     store.dispatch(pagingInitialize(numberOfPages));
 }
 
+export function searchPaging(store, searchArray) {
+    const employeeResult = searchArray.length;
+    const numberOfPages = Math.ceil(employeeResult / 10);
+    store.dispatch(pagingInitialize(numberOfPages));
+}
+
 export function choosePaging(store, choice) {
     const employeeTotal = selectEmployees(store.getState()).response.length;
     const numberOfPages = Math.ceil(employeeTotal / choice);

@@ -10,7 +10,7 @@ import {
 } from '../../components';
 import circleLeftSolid from '../../assets/circle-left-solid.svg';
 import { selectEmployees, selectPaging } from '../../utils/selectors';
-import { employeesSearched, getEmployeesData } from '../../features/employees';
+import { getEmployeesData } from '../../features/employees';
 import { initializePaging } from '../../features/paging';
 
 function EmployeesDataList() {
@@ -64,13 +64,19 @@ function EmployeesDataList() {
                 )}
 
                 <div className="employees-table-options">
-                    {isData ? (
+                    {!searchStatus ? (
                         <ShowingElements
                             startNbr={paging.startNbr}
                             endNbr={paging.endNbr}
-                            total={employeesDatas?.length}
+                            total={isData ? employeesDatas?.length : 0}
                         />
-                    ) : null}
+                    ) : (
+                        <ShowingElements
+                            startNbr={0}
+                            endNbr={searchData.length}
+                            total={searchData.length}
+                        />
+                    )}
                     <Paging pagesNbr={paging.pagesNbr} />
                 </div>
             </div>
