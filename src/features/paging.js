@@ -13,18 +13,35 @@ const pagingInitialize = createAction('Paging/choiceInitialize');
 const pagingChoiceUpdate = createAction('paging/choiceUpdate');
 const pagingChoicePage = createAction('paging/choicePage');
 
+/**
+ * A function that initialize the number of pages for all the employees data
+ * @param {Function} store hook from react-redux: useStore()
+ * @returns {ReducerAction}
+ */
 export function initializePaging(store) {
     const employeeTotal = selectEmployees(store.getState()).response.length;
     const numberOfPages = Math.ceil(employeeTotal / 10);
     store.dispatch(pagingInitialize(numberOfPages));
 }
 
+/**
+ * A function that calculate the number of pages when user does a search
+ * @param {Function} store hook from react-redux: useStore()
+ * @param {Array.<Object>} searchArray contains the employees data that match with the search content
+ * @returns {ReducerAction}
+ */
 export function searchPaging(store, searchArray) {
     const employeeResult = searchArray.length;
     const numberOfPages = Math.ceil(employeeResult / 10);
     store.dispatch(pagingInitialize(numberOfPages));
 }
 
+/**
+ * A function that modify the number of pages, the number of elements by page and the index of the last element.
+ * @param {Function} store hook from react-redux: useStore()
+ * @param {Number} choice number of elements by page
+ * @returns {ReducerAction}
+ */
 export function choosePaging(store, choice) {
     const employeeTotal = selectEmployees(store.getState()).response.length;
     const numberOfPages = Math.ceil(employeeTotal / choice);
@@ -37,6 +54,12 @@ export function choosePaging(store, choice) {
     );
 }
 
+/**
+ * A function that modify the index of the first and the last elements to show
+ * @param {Function} store hook from react-redux: useStore()
+ * @param {Number} choicePage number of the page choice
+ * @returns {ReducerAction}
+ */
 export function changeOfPage(store, choicePage) {
     const employeeTotal = selectEmployees(store.getState()).response.length;
     const choicePaging = selectPaging(store.getState()).choice;

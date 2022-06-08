@@ -4,10 +4,16 @@ import { useSelector, useStore } from 'react-redux';
 import { selectEmployees } from '../../utils/selectors';
 import { employeesSorted } from '../../features/employees';
 
+/**
+ * Component that implement sorting button
+ * @param {String} name name of the id button
+ * @returns {DOMImplementation}
+ */
 function TableButton({ name }) {
     const store = useStore();
     const employeesData = useSelector(selectEmployees).response;
 
+    /**Function that sort the elements  */
     function sortEmployees(event) {
         const arrowArray = event.currentTarget.getAttribute('id').split('-');
         const arrowName = arrowArray[0];

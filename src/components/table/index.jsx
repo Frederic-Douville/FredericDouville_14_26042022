@@ -1,5 +1,11 @@
 import TableButton from '../table button';
-
+/**
+ * Component that implement table of employees
+ * @param {Array.<Object>} dataArray array of object that contains employees data
+ * @param {Number} startNbr index of the first element to implement
+ * @param {Number} endNbr index of the last element to implement
+ * @returns {DOMImplementation}
+ */
 function Table({ dataArray, startNbr, endNbr }) {
     const titleArray = [
         { title: 'First Name', class: 'firstname' },

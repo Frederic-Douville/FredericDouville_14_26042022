@@ -16,6 +16,13 @@ export const employeesAddNewOne = createAction('employees/addNewOne');
 export const employeesSorted = createAction('employees/sorted');
 export const employeesSearched = createAction('employees/searched');
 
+/**
+ * A fetch request to get employees data list
+ * @param {Function} store hook from react-redux: useStore()
+ * @returns {Promise}
+ * @returns {Promise.resolve<Array.<Object>>} data array of object
+ * @returns {Promise.reject<Error>} error
+ */
 export async function getEmployeesData(store) {
     const status = selectEmployees(store.getState()).status;
     if (status === 'pending' || status === 'updating' || status === 'updated') {

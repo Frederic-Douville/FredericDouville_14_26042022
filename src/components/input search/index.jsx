@@ -7,7 +7,8 @@ function InputSearch() {
     const store = useStore();
     const employeesDatas = useSelector(selectEmployees).response;
 
-    function mainSearch(event) {
+    /**function that compare the search input value with the employees data keys to find matches */
+    function mainSearch() {
         var contentSearch = document.getElementById('input-search').value;
         var searchArray = [];
         if (contentSearch.length >= 2) {

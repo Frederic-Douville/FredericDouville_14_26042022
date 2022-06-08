@@ -12,13 +12,19 @@ const formResolved = createAction('form/resolved');
 const formRejected = createAction('form/rejected');
 export const formReset = createAction('form/reset');
 
+/**
+ * function that check the validity of the form entries when it is submit.
+ * @param {Function} store hook from react-redux: useStore()
+ * @param {Object} employeeData new employee data
+ * @returns {ReducerAction} save the data if they are valid
+ * @returns {ReducerAction} create an object of error messages if the data are not valid
+ */
 export function checkingData(store, employeeData) {
     const status = selectForm(store.getState()).status;
     if (status === 'resolved') {
         return;
     }
     store.dispatch(formChecking());
-    console.log(employeeData);
     const regexLetter = /^[a-zA-Zéèêëàâäùûüôöçîï -]+$/;
     const regexNumber = /^[0-9]+$/;
     const regexAdress = /^[a-zA-Zéèêëàâäùûüôöçîï0-9 ]+$/;

@@ -22,6 +22,7 @@ function EmployeesDataList() {
     const searchData = useSelector(selectEmployees).searchData;
     const paging = useSelector(selectPaging);
 
+    /** Getting employees data list and modifying of the boolean value of isData*/
     useEffect(() => {
         if (employeeStatus === 'void') {
             getEmployeesData(store);

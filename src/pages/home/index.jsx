@@ -7,7 +7,7 @@ import { employeesAddNewOne, getEmployeesData } from '../../features/employees';
 import EmployeeListIcon from '../../assets/address-card-solid.svg';
 import department from '../../datas/department.js';
 import americanStates from '../../datas/americanStates.js';
-import { InputField, ScrollingMenu } from '../../components';
+import { InputField, InputSelect } from '../../components';
 import { Modal } from 'p14-react-modal-ocr-fred_dou';
 
 function HomeForm() {
@@ -16,10 +16,12 @@ function HomeForm() {
     const errorMsg = useSelector(selectForm).errorMessages;
     const employeesData = useSelector(selectEmployees).response;
 
+    /** Getting employees data list */
     useEffect(() => {
         getEmployeesData(store);
     }, [store]);
 
+    /**Function that get new employee data in order to push it in the actual employees data list */
     function CreateEmployee(event) {
         event.preventDefault();
         const employeeData = {
@@ -35,6 +37,7 @@ function HomeForm() {
         };
         checkingData(store, employeeData);
 
+        /**Copy of the employees data array in order to push the new employee data */
         window.setTimeout(() => {
             const formStatus = selectForm(store.getState()).status;
             var newData = employeesData.map((item) =>
@@ -48,6 +51,7 @@ function HomeForm() {
         }, 100);
     }
 
+    /**Function that close the modal and rest the form */
     function closeModal() {
         store.dispatch(formReset());
         setIsModalOpen(false);
@@ -115,7 +119,7 @@ function HomeForm() {
                             type="text"
                             errorMsg={errorMsg?.city}
                         />
-                        <ScrollingMenu
+                        <InputSelect
                             label="State"
                             id="state"
                             optionArrayStates={americanStates}
@@ -128,7 +132,7 @@ function HomeForm() {
                             errorMsg={errorMsg?.zipcode}
                         />
                     </div>
-                    <ScrollingMenu
+                    <InputSelect
                         label="Department"
                         id="department"
                         optionArray={department}

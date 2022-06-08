@@ -4,15 +4,22 @@ import { useState } from 'react';
 import { choosePaging } from '../../features/paging';
 import { useStore } from 'react-redux';
 
+/**
+ * Component that implement a droping menu
+ * @param {Array.<Number>} optionsArray array of number
+ * @returns {DOMImplementation}
+ */
 function OptionsDropMenu({ optionsArray }) {
     const [dropIsOpen, setDropIsOpen] = useState(false);
     const [choice, setChoice] = useState(optionsArray[0]);
     const store = useStore();
 
+    /**function that change the boolean value of dropIsOpen */
     function openDropMenu() {
         setDropIsOpen(!dropIsOpen);
     }
 
+    /**function that change the value of choice and call the function choosePaging that modify paging */
     function choiceOption(event) {
         const choiceIndex = event.currentTarget
             .getAttribute('id')

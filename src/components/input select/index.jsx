@@ -1,13 +1,16 @@
 import { useSelector } from 'react-redux';
 import { selectForm } from '../../utils/selectors';
 
-function ScrollingMenu({
-    label,
-    id,
-    optionArray,
-    optionArrayStates,
-    errorMsg,
-}) {
+/**
+ * Component that implement a select input field
+ * @param {String} label label of the select input
+ * @param {String} id id of the select input
+ * @param {Array} optionArray array of options
+ * @param {Array} optionArrayStates array of objects that contains name and abbreviation key
+ * @param {String} errorMsg error message of the select input
+ * @returns {DOMImplementation}
+ */
+function InputSelect({ label, id, optionArray, optionArrayStates, errorMsg }) {
     const errorStatus = useSelector(selectForm).status;
     return (
         <div className={`form-input-wrapper form-${id}`}>
@@ -35,4 +38,4 @@ function ScrollingMenu({
     );
 }
 
-export default ScrollingMenu;
+export default InputSelect;
