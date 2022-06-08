@@ -20,7 +20,10 @@ const pagingChoicePage = createAction('paging/choicePage');
  */
 export function initializePaging(store) {
     const employeeTotal = selectEmployees(store.getState()).response.length;
-    const numberOfPages = Math.ceil(employeeTotal / 10);
+    var numberOfPages = Math.ceil(employeeTotal / 10);
+    if ((numberOfPages - 1) * 10 + (numberOfPages - 1) === employeeTotal + 1) {
+        numberOfPages = numberOfPages - 1;
+    }
     store.dispatch(pagingInitialize(numberOfPages));
 }
 
@@ -32,7 +35,10 @@ export function initializePaging(store) {
  */
 export function searchPaging(store, searchArray) {
     const employeeResult = searchArray.length;
-    const numberOfPages = Math.ceil(employeeResult / 10);
+    var numberOfPages = Math.ceil(employeeResult / 10);
+    if ((numberOfPages - 1) * 10 + (numberOfPages - 1) === employeeResult + 1) {
+        numberOfPages = numberOfPages - 1;
+    }
     store.dispatch(pagingInitialize(numberOfPages));
 }
 
@@ -44,7 +50,13 @@ export function searchPaging(store, searchArray) {
  */
 export function choosePaging(store, choice) {
     const employeeTotal = selectEmployees(store.getState()).response.length;
-    const numberOfPages = Math.ceil(employeeTotal / choice);
+    var numberOfPages = Math.ceil(employeeTotal / choice);
+    if (
+        (numberOfPages - 1) * choice + (numberOfPages - 1) ===
+        employeeTotal + 1
+    ) {
+        numberOfPages = numberOfPages - 1;
+    }
     var numberOfElement;
     numberOfPages > 1
         ? (numberOfElement = choice)
@@ -70,11 +82,8 @@ export function changeOfPage(store, choicePage) {
     var newStartNbr;
     var newEndNbr;
     if (choicePage > 1) {
-        newStartNbr =
-            (selectPaging(store.getState()).endNbr + 1) * (choicePage - 1);
-        newEndNbr =
-            (selectPaging(store.getState()).endNbr + choicePaging + 1) *
-            (choicePage - 1);
+        newStartNbr = (choicePage - 1) * choicePaging + (choicePage - 1);
+        newEndNbr = newStartNbr + choicePaging;
     }
     if (newEndNbr > employeeTotal) {
         newEndNbr = employeeTotal;
