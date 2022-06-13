@@ -1,19 +1,23 @@
 @font-face {
     font-family: 'Roboto-regular';
     src: url('./font/Roboto-Regular.ttf') format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Roboto-bold';
     src: url('./font/Roboto-Bold.ttf') format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Nunito-sans-regular';
     src: url('./font/NunitoSans-Regular.ttf') format("truetype");
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Nunito-sans-bold';
     src: url('./font/NunitoSans-Bold.ttf') format("truetype");
+    font-display: swap;
 }

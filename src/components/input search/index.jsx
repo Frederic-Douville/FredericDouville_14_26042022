@@ -10,25 +10,19 @@ function InputSearch() {
     /**function that compare the search input value with the employees data keys to find matches */
     function mainSearch() {
         var contentSearch = document.getElementById('input-search').value;
-        var searchArray = [];
         if (contentSearch.length >= 2) {
-            for (var i in employeesDatas) {
-                var valueArray = Object.values(employeesDatas[i]);
-                for (var j in valueArray) {
-                    if (typeof valueArray[j] === 'string') {
-                        if (
-                            valueArray[j]
-                                .toLowerCase()
-                                .startsWith(contentSearch) ||
-                            valueArray[j].includes(contentSearch)
-                        ) {
-                            searchArray.push(employeesDatas[i]);
-                        }
+            var filterArray = employeesDatas.filter((obj) => {
+                return Object.keys(obj).some((key) => {
+                    if (typeof obj[key] === 'string') {
+                        var matchObject =
+                            obj[key].toLowerCase().startsWith(contentSearch) ||
+                            obj[key].includes(contentSearch);
                     }
-                }
-            }
-            store.dispatch(employeesSearched([true, searchArray]));
-            searchPaging(store, searchArray);
+                    return matchObject;
+                });
+            });
+            store.dispatch(employeesSearched([true, filterArray]));
+            searchPaging(store, filterArray);
         }
         if (contentSearch.length === 0) {
             store.dispatch(employeesSearched([false, []]));

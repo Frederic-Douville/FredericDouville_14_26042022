@@ -21,75 +21,37 @@ function TableButton({ name }) {
         var newData = employeesData.map((item) =>
             Object.assign({}, item, { selected: false })
         );
-
-        if (arrowName === 'firstname') {
-            arrowDirection === 'up'
-                ? newData.sort((a, b) => a.firstname.localeCompare(b.firstname))
-                : newData.sort((a, b) =>
-                      b.firstname.localeCompare(a.firstname)
-                  );
-            store.dispatch(employeesSorted(newData));
-        }
-        if (arrowName === 'lastname') {
-            arrowDirection === 'up'
-                ? newData.sort((a, b) => a.lastname.localeCompare(b.lastname))
-                : newData.sort((a, b) => b.lastname.localeCompare(a.lastname));
-            store.dispatch(employeesSorted(newData));
-        }
-        if (arrowName === 'department') {
+        if (
+            arrowName === 'firstname' ||
+            arrowName === 'lastname' ||
+            arrowName === 'department' ||
+            arrowName === 'street' ||
+            arrowName === 'city' ||
+            arrowName === 'state'
+        ) {
             arrowDirection === 'up'
                 ? newData.sort((a, b) =>
-                      a.department.localeCompare(b.department)
+                      a[arrowName].localeCompare(b[arrowName])
                   )
                 : newData.sort((a, b) =>
-                      b.department.localeCompare(a.department)
+                      b[arrowName].localeCompare(a[arrowName])
                   );
-            store.dispatch(employeesSorted(newData));
         }
-        if (arrowName === 'street') {
-            arrowDirection === 'up'
-                ? newData.sort((a, b) => a.street.localeCompare(b.street))
-                : newData.sort((a, b) => b.street.localeCompare(a.street));
-            store.dispatch(employeesSorted(newData));
-        }
-        if (arrowName === 'city') {
-            arrowDirection === 'up'
-                ? newData.sort((a, b) => a.city.localeCompare(b.city))
-                : newData.sort((a, b) => b.city.localeCompare(a.city));
-            store.dispatch(employeesSorted(newData));
-        }
-        if (arrowName === 'state') {
-            arrowDirection === 'up'
-                ? newData.sort((a, b) => a.state.localeCompare(b.state))
-                : newData.sort((a, b) => b.state.localeCompare(a.state));
-            store.dispatch(employeesSorted(newData));
-        }
-        if (arrowName === 'birthday') {
+        if (arrowName === 'birthday' || arrowName === 'startday') {
             arrowDirection === 'up'
                 ? newData.sort(
-                      (a, b) => new Date(a.birthday) - new Date(b.birthday)
+                      (a, b) => new Date(a[arrowName]) - new Date(b[arrowName])
                   )
                 : newData.sort(
-                      (a, b) => new Date(b.birthday) - new Date(a.birthday)
+                      (a, b) => new Date(b[arrowName]) - new Date(a[arrowName])
                   );
-            store.dispatch(employeesSorted(newData));
-        }
-        if (arrowName === 'startday') {
-            arrowDirection === 'up'
-                ? newData.sort(
-                      (a, b) => new Date(a.startday) - new Date(b.startday)
-                  )
-                : newData.sort(
-                      (a, b) => new Date(b.startday) - new Date(a.startday)
-                  );
-            store.dispatch(employeesSorted(newData));
         }
         if (arrowName === 'zipcode') {
             arrowDirection === 'up'
-                ? newData.sort((a, b) => a.zipcode - b.zipcode)
-                : newData.sort((a, b) => b.zipcode - a.zipcode);
-            store.dispatch(employeesSorted(newData));
+                ? newData.sort((a, b) => a[arrowName] - b[arrowName])
+                : newData.sort((a, b) => b[arrowName] - a[arrowName]);
         }
+        store.dispatch(employeesSorted(newData));
     }
     return (
         <div className="table-btn-ctn">
