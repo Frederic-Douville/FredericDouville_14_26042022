@@ -1,11 +1,12 @@
 import { useSelector, useStore } from 'react-redux';
 import { employeesSearched } from '../../features/employees';
-import { initializePaging, searchPaging } from '../../features/paging';
-import { selectEmployees } from '../../utils/selectors';
+import { choosePaging, searchPaging } from '../../features/paging';
+import { selectEmployees, selectPaging } from '../../utils/selectors';
 
 function InputSearch() {
     const store = useStore();
     const employeesDatas = useSelector(selectEmployees).response;
+    const choicePaging = useSelector(selectPaging).choice;
 
     /**function that compare the search input value with the employees data keys to find matches */
     function mainSearch() {
@@ -26,7 +27,7 @@ function InputSearch() {
         }
         if (contentSearch.length === 0) {
             store.dispatch(employeesSearched([false, []]));
-            initializePaging(store);
+            choosePaging(store, choicePaging);
         }
     }
     return (

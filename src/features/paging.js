@@ -82,7 +82,7 @@ export function changeOfPage(store, choicePage) {
     var newStartNbr;
     var newEndNbr;
     if (choicePage > 1) {
-        newStartNbr = (choicePage - 1) * choicePaging + (choicePage - 1);
+        newStartNbr = (choicePage - 1) * (choicePaging - 1) + (choicePage - 1);
         newEndNbr = newStartNbr + choicePaging;
     }
     if (newEndNbr > employeeTotal) {
