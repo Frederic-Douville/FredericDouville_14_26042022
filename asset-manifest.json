@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/FredericDouville_14_26042022/static/css/main.4f6a5361.css",
+    "main.js": "/FredericDouville_14_26042022/static/js/main.8f9807a8.js",
+    "static/media/Roboto-Regular.ttf": "/FredericDouville_14_26042022/static/media/Roboto-Regular.a8d6ac03c7b96b7acb62.ttf",
+    "static/media/Roboto-Bold.ttf": "/FredericDouville_14_26042022/static/media/Roboto-Bold.75371f53f06181df75f1.ttf",
+    "static/media/NunitoSans-Bold.ttf": "/FredericDouville_14_26042022/static/media/NunitoSans-Bold.f2f18c2e01d2f39c18c9.ttf",
+    "static/media/NunitoSans-Regular.ttf": "/FredericDouville_14_26042022/static/media/NunitoSans-Regular.25d5a42e25da2f3ed7f4.ttf",
+    "static/media/Logo.jpg": "/FredericDouville_14_26042022/static/media/Logo.550a61bba16a38a1d91d.jpg",
+    "static/media/address-card-solid.svg": "/FredericDouville_14_26042022/static/media/address-card-solid.8870eef994f86ad4031734876d773f2e.svg",
+    "index.html": "/FredericDouville_14_26042022/index.html",
+    "static/media/circle-left-solid.svg": "/FredericDouville_14_26042022/static/media/circle-left-solid.a5e8a973658265ffae3c3fae806c5738.svg",
+    "static/media/chevron-up-solid.svg": "/FredericDouville_14_26042022/static/media/chevron-up-solid.99e1ed89f9a93994d7c5b576ee41aa0a.svg",
+    "static/media/chevron-down-solid.svg": "/FredericDouville_14_26042022/static/media/chevron-down-solid.2fc675d13a7b69e98ed1a7ea035127c4.svg",
+    "static/media/caret-down-solid.svg": "/FredericDouville_14_26042022/static/media/caret-down-solid.1f498ab4bc2dcf1ceb6d096bc28de83e.svg",
+    "static/media/caret-up-solid.svg": "/FredericDouville_14_26042022/static/media/caret-up-solid.7ed354881f688f3823f2fa743ef050fa.svg",
+    "main.4f6a5361.css.map": "/FredericDouville_14_26042022/static/css/main.4f6a5361.css.map",
+    "main.8f9807a8.js.map": "/FredericDouville_14_26042022/static/js/main.8f9807a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f6a5361.css",
+    "static/js/main.8f9807a8.js"
+  ]
+}
